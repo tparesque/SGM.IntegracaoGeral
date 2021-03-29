@@ -8,6 +8,16 @@
     <DocumentationFile>SGM.IntegracaoGeral.Api.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="SGM.IntegracaoGeral.Api.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SGM.IntegracaoGeral.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <ItemGroup>    
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />    
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.0" />

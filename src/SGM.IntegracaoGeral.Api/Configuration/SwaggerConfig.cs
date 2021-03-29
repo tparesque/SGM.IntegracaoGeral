@@ -19,7 +19,7 @@ namespace SGM.IntegracaoGeral.Api.Configuration
                     Version = "v1",
                 });
 
-                var xmlFile = "SGM.IntegracaoGeral.xml";
+                var xmlFile = "SGM.IntegracaoGeral.Api.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
