@@ -11,7 +11,7 @@ using SGM.IntegracaoGeral.Api.Interface;
 namespace SGM.IntegracaoGeral.Api.Controllers
 {
     [EnableCors("ApiCorsPolicy")]    
-    [Route("api/estados")]
+    [Route("api/gateway/estados")]
     [Authorize]
     [ApiController]
     public class EstadoController : Controller

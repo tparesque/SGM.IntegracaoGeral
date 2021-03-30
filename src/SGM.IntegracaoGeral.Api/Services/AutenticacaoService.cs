@@ -22,25 +22,25 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<AuthenticatedDto>> Login(AuthDto dto)
 		{
-			var response = await _httpClient.PostAsync("/api/authentication/login", ObterStringContent(dto));
+			var response = await _httpClient.PostAsync("/api/autenticacao/login", ObterStringContent(dto));
 			return await DeserializarObjetoResponse<ResultDto<AuthenticatedDto>>(response);
 		}
 
 		public async Task<ResultDto<UsuarioDto>> SalvarUsuario(UsuarioDto usuarioDto)
 		{
-			var response = await _httpClient.PostAsync("/api/authentication", ObterStringContent(usuarioDto));
+			var response = await _httpClient.PostAsync("/api/autenticacao", ObterStringContent(usuarioDto));
 			return await DeserializarObjetoResponse<ResultDto<UsuarioDto>>(response);
 		}
 
 		public async Task<ResultDto<bool>> EnviarEmailRecuperarSenha(UsuarioDto usuarioDto)
 		{
-			var response = await _httpClient.PostAsync("/api/authentication/enviar-email-recuperacao-senha", ObterStringContent(usuarioDto));
+			var response = await _httpClient.PostAsync("/api/autenticacao/enviar-email-recuperacao-senha", ObterStringContent(usuarioDto));
 			return await DeserializarObjetoResponse<ResultDto<bool>>(response);
 		}
 
 		public async Task<ResultDto<bool>> RecuperarSenha(RecuperarSenhaDto dto)
 		{
-			var response = await _httpClient.PostAsync("/api/authentication/recuperar-senha", ObterStringContent(dto));
+			var response = await _httpClient.PostAsync("/api/autenticacao/recuperar-senha", ObterStringContent(dto));
 			return await DeserializarObjetoResponse<ResultDto<bool>>(response);
 		}
 	}	

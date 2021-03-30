@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace SGM.IntegracaoGeral.Api.Controllers
 {
 	[EnableCors("ApiCorsPolicy")]
-	[Route("api/solicitacaoReparo")]
+	[Route("api/gateway/solicitacaoReparo")]
 	[Authorize]
 	[ApiController]
 	public class SolicitarConcertoIluminacaoController : Controller

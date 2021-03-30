@@ -22,7 +22,7 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<IEnumerable<MunicipioDto>>> ObterTodosPorEstado(int estadoId)
 		{
-			var response = await _httpClient.GetAsync("/api/municipios/estado/" + estadoId);
+			var response = await _httpClient.GetAsync("/api/autenticacao/municipios/estado/" + estadoId);
 			return await DeserializarObjetoResponse<ResultDto<IEnumerable<MunicipioDto>>>(response);
 		}
 	}	

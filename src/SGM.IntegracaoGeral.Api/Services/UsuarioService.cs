@@ -22,43 +22,43 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<IEnumerable<UsuarioDto>>> ObterTodosUsuarios()
 		{
-			var response = await _httpClient.GetAsync("/api/usuarios/usuarios");
+			var response = await _httpClient.GetAsync("/api/autenticacao/usuarios/usuarios");
 			return await DeserializarObjetoResponse<ResultDto<IEnumerable<UsuarioDto>>>(response);
 		}
 
 		public async Task<ResultDto<IEnumerable<UsuarioDto>>> ObterTodos()
 		{
-			var response = await _httpClient.GetAsync("/api/usuarios");
+			var response = await _httpClient.GetAsync("/api/autenticacao/usuarios");
 			return await DeserializarObjetoResponse<ResultDto<IEnumerable<UsuarioDto>>>(response);
 		}
 
 		public async Task<ResultDto<UsuarioDto>> GetUserById(string usuarioId)
 		{
-			var response = await _httpClient.GetAsync("/api/usuarios/" + usuarioId);
+			var response = await _httpClient.GetAsync("/api/autenticacao/usuarios/" + usuarioId);
 			return await DeserializarObjetoResponse<ResultDto<UsuarioDto>>(response);
 		}
 
 		public async Task<ResultDto<UsuarioDto>> Update(UsuarioDto usuarioDto)
 		{
-			var response = await _httpClient.PutAsync("/api/usuarios/" + usuarioDto.Id, ObterStringContent(usuarioDto));
+			var response = await _httpClient.PutAsync("/api/autenticacao/usuarios/" + usuarioDto.Id, ObterStringContent(usuarioDto));
 			return await DeserializarObjetoResponse<ResultDto<UsuarioDto>>(response);
 		}
 
 		public async Task<ResultDto<bool>> AtualizarSenha(UsuarioDto usuarioDto)
 		{
-			var response = await _httpClient.PutAsync("/api/usuarios/" + usuarioDto.Id + "/atualizar-senha", ObterStringContent(usuarioDto));
+			var response = await _httpClient.PutAsync("/api/autenticacao/usuarios/" + usuarioDto.Id + "/atualizar-senha", ObterStringContent(usuarioDto));
 			return await DeserializarObjetoResponse<ResultDto<bool>>(response);
 		}
 
 		public async Task<ResultDto<UsuarioDto>> Salvar(UsuarioDto usuarioDto)
 		{
-			var response = await _httpClient.PostAsync("/api/usuarios", ObterStringContent(usuarioDto));
+			var response = await _httpClient.PostAsync("/api/autenticacao/usuarios", ObterStringContent(usuarioDto));
 			return await DeserializarObjetoResponse<ResultDto<UsuarioDto>>(response);
 		}
 
 		public async Task<ResultDto<bool>> Delete(string usuarioId)
 		{
-			var response = await _httpClient.DeleteAsync("/api/usuarios/" + usuarioId);
+			var response = await _httpClient.DeleteAsync("/api/autenticacao/usuarios/" + usuarioId);
 			return await DeserializarObjetoResponse<ResultDto<bool>>(response);
 		}       
     }	

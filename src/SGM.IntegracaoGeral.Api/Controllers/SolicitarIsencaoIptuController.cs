@@ -13,7 +13,7 @@ namespace SGM.IntegracaoGeral.Api.Controllers
 {
 	[ApiController]
 	[EnableCors("ApiCorsPolicy")]
-	[Route("api/solicitacao/isencao-iptu")]
+	[Route("api/gateway/solicitacao/isencao-iptu")]
 	[Authorize]
 	public class SolicitarIsencaoIptuController : Controller
 	{

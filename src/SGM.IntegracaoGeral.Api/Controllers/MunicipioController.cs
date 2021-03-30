@@ -10,7 +10,7 @@ using SGM.IntegracaoGeral.Api.Interface;
 namespace SGM.IntegracaoGeral.Api.Controllers
 {
     [EnableCors("ApiCorsPolicy")]    
-    [Route("api/municipios")]
+    [Route("api/gateway/municipios")]
     [Authorize]
     [ApiController]
     public class MunicipioController : Controller

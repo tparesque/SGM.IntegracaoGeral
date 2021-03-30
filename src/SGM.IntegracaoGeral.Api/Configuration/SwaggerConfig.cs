@@ -9,6 +9,9 @@ namespace SGM.IntegracaoGeral.Api.Configuration
 {
     public static class SwaggerConfig
     {
+        private static readonly string swaggerBasePath = "api/gateway";
+
+
         public static void AddSwaggerGenConfig(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
@@ -53,11 +56,15 @@ namespace SGM.IntegracaoGeral.Api.Configuration
 
         public static void UseSwaggerConfig(this IApplicationBuilder app)
         {
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = swaggerBasePath + "/swagger/{documentName}/swagger.json";
+            });
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SGM Integração Geral API Gateway");
+                c.SwaggerEndpoint($"/{swaggerBasePath}/swagger/v1/swagger.json", "SGM Autenticação API");
+                c.RoutePrefix = $"{swaggerBasePath}/swagger";
             });
 
             var option = new RewriteOptions();

@@ -10,7 +10,7 @@ using SGM.IntegracaoGeral.Api.Interface;
 namespace SGM.IntegracaoGeral.Api.Controllers
 {
     [EnableCors("ApiCorsPolicy")]    
-    [Route("api/usuarios")]
+    [Route("api/gateway/usuarios")]
     [Authorize]
     [ApiController]
     public class UsuarioController : Controller

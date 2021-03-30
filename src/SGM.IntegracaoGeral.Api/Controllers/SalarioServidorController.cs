@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SGM.IntegracaoGeral.Api.Controllers
 {
 	[EnableCors("ApiCorsPolicy")]
-	[Route("api/salarioServidor")]
+	[Route("api/gateway/salarioServidor")]
 	[Authorize]
 	[ApiController]
 	public class SalarioServidorController : Controller
