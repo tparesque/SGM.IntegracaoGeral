@@ -23,37 +23,37 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<bool>> CriarSolicitacaoReparo(SolicitacaoReparoRequest request)
 		{
-			var response = await _httpClient.PostAsync("/api/solicitacaoReparo", ObterStringContent(request));
+			var response = await _httpClient.PostAsync("/api/servicos-ao-cidadao/solicitacaoReparo", ObterStringContent(request));
 			return await DeserializarObjetoResponse<ResultDto<bool>>(response);
 		}
 
         public async Task<ResultDto<List<SolicitarConcertoIluminacaoDto>>> ObterSolicitacaoReparo()
         {
-            var response = await _httpClient.GetAsync("/api/solicitacaoReparo");
+            var response = await _httpClient.GetAsync("/api/servicos-ao-cidadao/solicitacaoReparo");
             return await DeserializarObjetoResponse<ResultDto<List<SolicitarConcertoIluminacaoDto>>>(response);
         }
 
         public async Task<ResultDto<SolicitarConcertoIluminacaoDto>> ObterPorId(Guid solicitacaoId)
         {
-            var response = await _httpClient.GetAsync("/api/solicitacaoReparo/" + solicitacaoId.ToString());
+            var response = await _httpClient.GetAsync("/api/servicos-ao-cidadao/solicitacaoReparo/" + solicitacaoId.ToString());
             return await DeserializarObjetoResponse<ResultDto<SolicitarConcertoIluminacaoDto>>(response);
         }       
 
         public async Task<ResultDto<bool>> IniciarAtendimento(Guid solicitacaoId)
         {
-            var response = await _httpClient.PutAsync("/api/solicitacaoReparo/" + solicitacaoId.ToString() + "/iniciarAtendimento", null);
+            var response = await _httpClient.PutAsync("/api/servicos-ao-cidadao/solicitacaoReparo/" + solicitacaoId.ToString() + "/iniciarAtendimento", null);
             return await DeserializarObjetoResponse<ResultDto<bool>>(response);
         }
 
         public async Task<ResultDto<bool>> FinalizarAtendimento(Guid solicitacaoId)
         {
-            var response = await _httpClient.PutAsync("/api/solicitacaoReparo/" + solicitacaoId.ToString() + "/finalizarAtendimento", null);
+            var response = await _httpClient.PutAsync("/api/servicos-ao-cidadao/solicitacaoReparo/" + solicitacaoId.ToString() + "/finalizarAtendimento", null);
             return await DeserializarObjetoResponse<ResultDto<bool>>(response);
         }
 
         public async Task<ResultDto<bool>> Delete(Guid solicitacaoId)
         {
-            var response = await _httpClient.DeleteAsync("/api/solicitacaoReparo/" + solicitacaoId.ToString());
+            var response = await _httpClient.DeleteAsync("/api/servicos-ao-cidadao/solicitacaoReparo/" + solicitacaoId.ToString());
             return await DeserializarObjetoResponse<ResultDto<bool>>(response);
         }
     }	

@@ -22,7 +22,7 @@ namespace SGM.IntegracaoGeral.Api.Services
 
         public async Task<ResultDto<List<SalarioServidorDto>>> ObterTodos(string matricula, string nome, string mesReferencia, string anoReferencia)
         {
-            var url = @$"/api/salarioServidor?matricula={matricula}&nome={nome}&mesReferencia={mesReferencia}&anoReferencia={anoReferencia}";
+            var url = @$"/api/safim/salarioServidor?matricula={matricula}&nome={nome}&mesReferencia={mesReferencia}&anoReferencia={anoReferencia}";
             var response = await _httpClient.GetAsync(url);
             return await DeserializarObjetoResponse<ResultDto<List<SalarioServidorDto>>>(response);
         }

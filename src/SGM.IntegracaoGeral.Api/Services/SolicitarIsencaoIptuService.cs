@@ -26,7 +26,7 @@ namespace SGM.IntegracaoGeral.Api.Services
 		{
 			StringContent conteudo = ObterStringContent(request);
 
-			var response = await _httpClient.PostAsync("/api/solicitacoes", conteudo);
+			var response = await _httpClient.PostAsync("/api/servicos-ao-cidadao/solicitacoes", conteudo);
 
 			var objetoDeserializado = await DeserializarObjetoResponse<ResultDto<bool>>(response);
 			return objetoDeserializado;
@@ -34,7 +34,7 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<List<SolicitacaoIsencaoIptuDto>>> ObterTodasSolicitacoesIptu()
 		{
-			var response = await _httpClient.GetAsync("/api/solicitacoes");
+			var response = await _httpClient.GetAsync("/api/servicos-ao-cidadao/solicitacoes");
 
 			var objetoDeserializado = await DeserializarObjetoResponse<ResultDto<List<SolicitacaoIsencaoIptuDto>>>(response);
 			return objetoDeserializado;
@@ -42,7 +42,7 @@ namespace SGM.IntegracaoGeral.Api.Services
 
 		public async Task<ResultDto<SolicitacaoIsencaoIptuDto>> ObterPorId(Guid solicitacaoId)
 		{
-			var response = await _httpClient.GetAsync("/api/solicitacoes/" + solicitacaoId.ToString());
+			var response = await _httpClient.GetAsync("/api/servicos-ao-cidadao/solicitacoes/" + solicitacaoId.ToString());
 			return await DeserializarObjetoResponse<ResultDto<SolicitacaoIsencaoIptuDto>>(response);
 		}
 	}
